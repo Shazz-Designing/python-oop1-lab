@@ -1,146 +1,149 @@
-# Object Oriented Programming Lab - Bookstore 
+# 📚 Object Oriented Programming Lab – Bookstore
 
-This scenario should encompass all of the topics provided in the module. Now that you’ve delved into creating a new class in Python it is now time to practice this concept.
+## 📖 Overview
 
-## The Scenario
+This lab demonstrates the use of Object-Oriented Programming (OOP) principles in Python by modeling a simple bookstore system.
 
-You are tasked with building two different classes to aid with representing and modeling a bookstore. First will be a book object to allow for reading an online book and the second will be a coffee object as another object carried by the store. Both objects will have several attributes and functions to be called. 
+Two classes were implemented:
 
-## Tools & Resources
+- `Book`
+- `Coffee`
 
-* [GitHub Repo](https://github.com/learn-co-curriculum/python-oop1-lab)
-* [Python Classes](https://docs.python.org/3/tutorial/classes.html)
+The project focuses on:
+- Class creation
+- Object initialization
+- Properties and validation
+- Instance methods
+- Test-driven development using Pytest
+- Git workflow and version control
 
-## Instructions
+---
 
-### Set Up
+## 🧠 The Scenario
 
-Before we begin coding, let's complete the initial setup for this lesson: 
+You are tasked with building two different classes to represent and model a bookstore.
 
-* Part 1: Fork and Clone- For this lesson, you will need the previously linked GitHub Repo:
-  * Go to the provided GitHub repository link.
-  * Fork the repository to your GitHub account.
-  * Clone the forked repository to your local machine.
-* Part 2: Open and Run File
-  * Open the project in VSCode.
-  * Run `pipenv install` to install all necessary dependencies.
-  * Run `pipenv shell` to enter the virtual environment.
+- A **Book** object that allows a user to read an online book.
+- A **Coffee** object representing a beverage sold in the store.
 
-This lab is test-driven. You will write your code in `lib/book.py` and
-`lib/coffee.py`. Run the tests and work your way through the test errors one by
-one until you get everything passing.
+Each object contains attributes and methods that define its behavior.
 
-You're also encouraged to look at the test files to see what the tests are
-expecting to be able to do with your classes. These tests won't force you to
-use everything that you've learned in this module- feel free to add any
-features that might be useful!
+---
 
-Note that there are separate test files for the two classes inside the `testing`
-folder. If you'd like to run the tests separately for the two classes, you can
-specify which test file to run:
+## ⚙️ Setup Instructions
 
-```console
-$ pytest -x testing/book_test.py
+### 1️⃣ Fork and Clone
+- Fork the GitHub repository to your account.
+- Clone your fork locally.
+
+### 2️⃣ Install Dependencies
+
+```bash
+pipenv install
+pipenv shell
 ```
 
-or:
+### 3️⃣ Run Tests
 
-```console
-$ pytest -x testing/coffee_test.py
+```bash
+pytest -x
 ```
 
-Remember that the optional `-x` flag makes your tests stop after the first
-failure - this setting is ideal for test-driven development!
+This project is test-driven. All tests must pass before submission.
 
-### Task 1: Define the Problem
+You can run specific test files:
 
-Build a model for a book and a coffee
-<br />
-As a user, one should be able to:
-* Build a book object
-* Build a coffee object
-* Call to turn a book page
-* Call to tip for the coffee
+```bash
+pytest -x testing/book_test.py
+pytest -x testing/coffee_test.py
+```
 
-### Task 2: Determine the Design
+---
 
-Book
-* Attributes:
-  * title
-  * page_Count
-* Methods:
-  * turn_page()
-Coffee
-* Attributes:
-  * size
-  * price
-* Methods:
-  * tip()
+## 🏗️ Implementation Details
 
-### Task 3: Develop, Test, and Refine the Code
+### 📘 Book Class
 
-#### Step 1: Feature Branch and Book Class
+**File:** `lib/book.py`
 
-* Create Feature Branch
+#### Attributes:
+- `title`
+- `page_count`
+  - Must be an integer
+  - If not, prints:
+    ```
+    page_count must be an integer
+    ```
 
-* Create Book class:
-  * __init__:
-    * title
-      * Require user to input
-    * page_count
-      * Require user to input
-* Properties:
-  * page_count:
-    * Ensure it is an integer
-    * if not print “page_count must be an integer”
-* Methods:
-  * turn_page():
-    * Will print “Flipping the page...wow, you read fast!”
+#### Methods:
+- `turn_page()`
+  - Prints:
+    ```
+    Flipping the page...wow, you read fast!
+    ```
 
-#### Step 2: Create Coffee Class & Push Feature Branch and Merge
+---
 
-* __init__:
-  * size
-    * Require user to input
-  * price
-    * Require user to input
-* Properties:
-  * Size
-    * Ensure size is either Small, Medium, or Large
-    * If not print “size must be Small, Medium, or Large”
-* Methods:
-  * tip():
-    * Will print “This coffee is great, here’s a tip!”
-    * Will increase price by 1 
+### ☕ Coffee Class
 
-#### Step 3: Push Feature Branch and Merge
+**File:** `lib/coffee.py`
 
-* Push feature branch and open a PR on GitHub
-* Merge to main
+#### Attributes:
+- `size`
+  - Must be `"Small"`, `"Medium"`, or `"Large"`
+  - If not, prints:
+    ```
+    size must be Small, Medium, or Large
+    ```
+- `price`
 
-### Task 4: Document and Maintain
+#### Methods:
+- `tip()`
+  - Prints:
+    ```
+    This coffee is great, here’s a tip!
+    ```
+  - Increases the coffee price by 1
 
-Best Practice documentation steps:
-* Add comments to code to explain purpose and logic. This clarifies intent / functionality of code to other developers
-* Add screenshot of completed work included in Markdown in README.
-* Update README text to reflect the functionality of the application following https://makeareadme.com.
-* Delete any stale branches on GitHub
-* Remove unnecessary/commented out code
-* If needed, update git ignore to remove sensitive data 
+---
 
-## Save your work and push to GitHub
+## 🧪 Test-Driven Development
 
-Before you submit your solution, you need to save your progress with git.
-1. Add your changes to the staging area by executing git add .
-2. Create a commit by executing git commit -m "Your commit message"
-3. Push your commits to GitHub by executing git push origin main or git push origin master , depending on the name of your branch (use git branch to check on which branch you are).
+This project was built using a test-driven development approach:
 
-## Submission and Grading Criteria
+- Run tests
+- Fix one failure at a time
+- Repeat until all tests pass
 
-1. Use the rubric in Canvas as a guide for how this lab is graded.
-2. Your submission will be automatically scored in CodeGrade, using the most recent commit. Remember to make sure you have pushed your commit to GitHub before submitting your assignment. 
-3. You can review your submission in CodeGrade and see your final score in your Canvas gradebook.
-4. When you are ready to submit, click the ***Load Lab: Object Oriented Programming (OOP)- Part 1- Bookstore*** button in Canvas to launch CodeGrade.
-  * Click on + Create Submission. Connect your repository for this lab.
-  * For additional information on submitting assignments in CodeGrade: [Getting Started in Canvas](https://help.codegrade.com/for-students/getting-started/getting-started-in-canvas)
+### ✅ Final Test Results
 
+```
+7 passed
+```
+
+*(Add screenshot below)*
+
+---
+
+## 📸 Screenshot
+
+Add a screenshot of your passing tests below:
+
+```markdown
+![Passing Tests](tests_passed.png)
+```
+
+---
+
+## 🛠️ Technologies Used
+
+- Python
+- Pipenv
+- Pytest
+- Git & GitHub
+
+---
+
+## 👩‍💻 Author
+
+Sharon Apot
